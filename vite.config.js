@@ -9,20 +9,45 @@
 
 
 
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
+
+// // https://vitejs.dev/config/
+// export default defineConfig({
+//   plugins: [react()],
+//   build: {
+//     rollupOptions: {
+//       // Tell Vite not to try to bundle these at build time
+//       external: ['jspdf', 'html2canvas']
+//     }
+//   },
+//   optimizeDeps: {
+//     // Ensure they are pre-bundled properly in dev & build
+//     include: ['jspdf', 'html2canvas']
+//   }
+// })
+
+
+
+
+
+
+
+
+
+
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  optimizeDeps: {
+    include: ['jspdf', 'html2canvas']
+  },
   build: {
     rollupOptions: {
-      // Tell Vite not to try to bundle these at build time
-      external: ['jspdf', 'html2canvas']
+      external: []
     }
-  },
-  optimizeDeps: {
-    // Ensure they are pre-bundled properly in dev & build
-    include: ['jspdf', 'html2canvas']
   }
 })
